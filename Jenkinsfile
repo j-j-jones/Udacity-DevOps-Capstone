@@ -3,10 +3,26 @@ pipeline {
 environment {
     registry = "jjjones/udacity-devops-capstone"
     registryCredential = 'dockerhub'
+	dockerImage = ''
   }
     agent any
 
     stages {
+	
+	   stage('Cloning Git') {
+           steps {
+               git 'https://github.com/j-j-jones/udacity-devops-capstone.git'
+              }
+        }
+		
+		stage('Lint HTML') {
+            steps {
+                echo 'Linting Now...'
+                sh 'hostname'
+                sh 'tidy -q -e *.html'
+            }
+        }
+	
         stage('Build Docker Image') {
             steps {
                 echo 'Building...'
@@ -15,27 +31,22 @@ environment {
                        }
                   }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
+		
+		stage('Deploy Image') {
+           steps{
+               script {
+                       docker.withRegistry( '', registryCredential ) {
+                       dockerImage.push()
+                       }
+                    }
+	            }	
             }
-        }
-        
-        stage('Lint HTML') {
-            steps {
-                echo 'Linting Now...'
-                sh 'hostname'
-                sh 'tidy -q -e *.html'
-            }
-        }
-        stage('Upload to Docker Hub') {
-            steps {
-                echo 'Deploying to Docker Hub Now..'
-                //withAWS(region:'us-east-1',credentials:'aws-static')
-                //{
-                //    s3Upload(file: 'index.html', bucket: 'jenkins-udacity', path: '')
-               // }
-            }
-        }
+		
+               
+		stage('Remove Unused docker image') {
+            steps{
+                sh "docker rmi $registry:$BUILD_NUMBER"
+                 }
+			}	 
     }
 }
