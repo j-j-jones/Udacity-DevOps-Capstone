@@ -27,28 +27,29 @@ stages {
 	
         stage('Build Docker Image') {
             steps {
-                echo 'Building...'
-				script {
-                       docker.build registry + ":$BUILD_NUMBER"
-                       }
+                    echo 'Building...'
+		    script {
+                            docker.build registry + ":$BUILD_NUMBER"
+                           }
                   }
-        }
+          }
 		
-		stage('Deploy Image') {
-           steps{
-               script {
-                       docker.withRegistry( '', registryCredential ) {
-                       dockerImage.push()
-                       }
-                    }
-	            }	
+	
+	stage('Deploy Image') {
+           steps {
+                   script {
+                            docker.withRegistry( '', registryCredential ) {
+                            dockerImage.push()
+                            }
+                          }
+	         }	
             }
 		
                
-		stage('Remove Unused docker image') {
-            steps{
-                sh "docker rmi $registry:$BUILD_NUMBER"
-                 }
-			}	 
+	stage('Remove Unused docker image') {
+            steps {
+                    sh "docker rmi $registry:$BUILD_NUMBER"
+                  }
+	    }	 
     }
 }
