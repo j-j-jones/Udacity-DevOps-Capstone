@@ -1,11 +1,19 @@
 pipeline {
+
+environment {
+    registry = "jjjones/udacity-devops-capstone"
+    registryCredential = 'dockerhub'
+  }
     agent any
 
     stages {
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
                 echo 'Building...'
-            }
+				script {
+                       docker.build registry + ":$BUILD_NUMBER"
+                       }
+                  }
         }
         stage('Test') {
             steps {
