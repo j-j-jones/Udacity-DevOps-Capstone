@@ -18,11 +18,11 @@ pipeline {
         sh 'tidy -q -e *.html'
       }
     }
-    stage('Upload to AWS') {
+    stage('Uploading Image to Docker Hub') {
       steps {
-        echo 'Deploying..'
-        withAWS(region: 'us-east-1', credentials: 'aws-static') {
-          s3Upload(file: 'index.html', bucket: 'jenkins-udacity')
+        echo 'Uploading..'
+        //withAWS(region: 'us-east-1', credentials: 'aws-static') {
+          //s3Upload(file: 'index.html', bucket: 'jenkins-udacity')
         }
 
       }
