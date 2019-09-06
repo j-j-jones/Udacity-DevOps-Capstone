@@ -21,8 +21,8 @@ pipeline {
     stage('Uploading Docker Image') {
       steps {
         echo 'Uploading image to Docker Hub..'
-        // withAWS(region: 'us-east-1', credentials: 'aws-static') {
-        // s3Upload(file: 'index.html', bucket: 'jenkins-udacity')
+        // 
+        // 
         }
 
       }
