@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+environment {
+registry = 'jjjones/udacity-devops-capstone'
+registryCredential = 'dockerhub'
+dockerImage = ''
+}
+agent any
   stages {
     stage('Cloning Git') {
       steps {
@@ -39,9 +44,5 @@ pipeline {
       }
     }
   }
-  environment {
-    registry = 'jjjones/udacity-devops-capstone'
-    registryCredential = 'dockerhub'
-    dockerImage = ''
-  }
+ 
 }
