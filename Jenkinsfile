@@ -5,7 +5,8 @@ environment {
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
-    agent any
+ 
+agent any
 
     stages {
 	
