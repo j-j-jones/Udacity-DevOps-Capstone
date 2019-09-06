@@ -1,11 +1,4 @@
 pipeline {
- 
- environment {
- registry = "jjjones/udacity-devops-capstone"
- registryCredential = 'dockerhub'
- dockerImage = ''
- }
-  
   agent any
   stages {
     stage('Cloning Git') {
@@ -33,18 +26,22 @@ pipeline {
       steps {
         echo 'Pushing Image...'
         script {
-                docker.withRegistry( '', registryCredential ) {
-                dockerImage.push()
-                }
-               }
-           }
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
+
+      }
     }
-    
-   stage('Remove Unused docker image') {
+    stage('Remove Unused docker image') {
       steps {
         sh "docker rmi $registry:$BUILD_NUMBER"
       }
     }
   }
-
+  environment {
+    registry = 'jjjones/udacity-devops-capstone'
+    registryCredential = 'dockerhub'
+    dockerImage = ''
+  }
 }
