@@ -8,21 +8,22 @@ environment {
  
 agent any
 
-    stages {
+stages {
 	
-	   stage('Cloning Git') {
+	 stage('Cloning Git') {
            steps {
-               git 'https://github.com/j-j-jones/udacity-devops-capstone.git'
-              }
-        }
+                  git 'https://github.com/j-j-jones/udacity-devops-capstone.git'
+	         }
+         }
 		
-		stage('Lint HTML') {
-            steps {
-                echo 'Linting Now...'
-                sh 'hostname'
-                sh 'tidy -q -e *.html'
-            }
-        }
+		
+	 stage('Lint HTML') {
+           steps {
+                  echo 'Linting Now...'
+                  sh 'hostname'
+                  sh 'tidy -q -e *.html'
+                }
+         }
 	
         stage('Build Docker Image') {
             steps {
