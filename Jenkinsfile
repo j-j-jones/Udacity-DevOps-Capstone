@@ -46,9 +46,5 @@ pipeline {
       }
     }
   }
-  environment {
-    registry = 'jjjones/udacity-devops-capstone'
-    registryCredential = 'dockerhub'
-    dockerImage = ''
-  }
+
 }
