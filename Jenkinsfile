@@ -24,7 +24,6 @@ pipeline {
         // withAWS(region: 'us-east-1', credentials: 'aws-static') {
         // s3Upload(file: 'index.html', bucket: 'jenkins-udacity')
         }
-
       }
     }
   }
