@@ -44,6 +44,13 @@ pipeline {
         sh "docker rmi $registry:$BUILD_NUMBER"
       }
     }
+    
+    stage('Read YAML File') {
+      steps {
+        script{ datas = readYaml (file: 'manifest.yml') }
+            echo 'Reading YAML File Complete'
+      }
+    }
+  
   }
- 
 }
