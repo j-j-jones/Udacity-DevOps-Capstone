@@ -45,9 +45,15 @@ pipeline {
       }
     }
     
+    stage('Create Kubernetes Cluster') {
+      steps {
+        sh('aws_cluster_create.sh')
+      }
+    }
+    
     stage('Read YAML File') {
       steps {
-        script{ datas = readYaml (file: 'manifest.yml') }
+        //script{ datas = readYaml (file: 'manifest.yml') }
             echo 'Reading YAML File Complete'
       }
     }
