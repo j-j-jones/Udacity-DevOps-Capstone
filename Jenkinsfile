@@ -12,7 +12,7 @@ pipeline {
         git 'https://github.com/j-j-jones/udacity-devops-capstone.git'
       }
     }
-    stage('Lint HTML') {
+    stage('Lining Blue and Green HTML') {
       steps {
         echo 'Linting Now...'
         sh 'hostname'
