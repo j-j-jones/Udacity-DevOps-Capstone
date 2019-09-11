@@ -11,7 +11,7 @@ pipeline {
     stage('Build Blue Image') {
       steps {
         sh 'cd blue'
-        sh 'docker_run.sh'
+        sh './docker_run.sh'
       }
     }
     stage('Read YAML File') {
