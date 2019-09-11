@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 # STEP-01:
-# BUILD DOCKER IMAGE WITH DESCRIPTIVE TAG
-docker build --tag=blueImage .
+# ESTABLISH DOCKER PATH
+dockerpath=jjones/udacity
+docker login
 
 # STEP-02:
-# LIST DOCKER IMAGES
-docker image ls
+# TAG DOCKER IMAGE
+docker tag blueImage $dockerpath
 
 # STEP-03:
-# RUN DOCKER IMAGE
-docker run -p 8000:80 blueImage
+# PUSH DOCKER IMAGE
+docker push $dockerpath
