@@ -10,8 +10,9 @@ pipeline {
     }
     stage('Build Blue Image') {
       steps {
-        sudo dir(path: 'blue') {
+          dir(path: 'blue') {
           echo 'Moved to Blue Folder'
+          sh 'ls -a'
           sh './docker_run.sh'
         }
 
