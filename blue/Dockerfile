@@ -1,7 +1,8 @@
+# STEP-01
 FROM nginx:alpine
 
-#STEP:01
+# STEP-02
 RUN rm /usr/share/nginx/html/index.html
 
-#STEP:02 COPY SOURCE CODE TO PRODUCTION
+# STEP-03: COPY SOURCE CODE TO PRODUCTION
 COPY index.html /usr/share/nginx/html/index.html
