@@ -13,7 +13,7 @@ pipeline {
         dir(path: 'blue') {
           echo 'Moved to Blue Folder'
           sh 'ls -a'
-          sh 'sudo -S ./docker_run.sh'
+          sh 'sudo ./docker_run.sh'
         }
 
       }
