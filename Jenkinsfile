@@ -8,6 +8,11 @@ pipeline {
         sh 'tidy -q -e **/*.html'
       }
     }
+    stage('Build Blue Image') {
+      steps {
+        sh '/blue/docker_build.sh'
+      }
+    }
     stage('Read YAML File') {
       steps {
         echo 'Reading YAML File Complete'
