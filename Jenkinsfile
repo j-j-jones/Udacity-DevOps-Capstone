@@ -6,7 +6,7 @@ pipeline {
     //dockerImage = ''
   //}
   agent any
-  //stages {
+  stages {
     //stage('Cloning Git') {
       //steps {
         //git 'https://github.com/j-j-jones/udacity-devops-capstone.git'
