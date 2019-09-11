@@ -16,7 +16,7 @@ pipeline {
       steps {
         echo 'Linting Now...'
         sh 'hostname'
-        sh 'tidy -q -e /blue/*.html'
+        sh 'tidy -q -e .blue/*.html'
       }
     }
     //stage('Build Docker Image') {
