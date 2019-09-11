@@ -1,16 +1,13 @@
 #!/usr/bin/env bash
 
-## Complete the following steps to get Docker running locally
-
-# Step 1:
-# Build image and add a descriptive tag
+# STEP-01:
+# BUILD DOCKER IMAGE WITH DESCRIPTIVE TAG
 docker build --tag=blueImage .
 
-# Step 2: 
-# List docker images
+# STEP-02:
+# LIST DOCKER IMAGES
 docker image ls
 
-# Step 3: 
-# Run flask app
-#docker run -p 8080:8000 predict
+# STEP-03:
+# RUN DOCKER IMAGE
 docker run -p 8000:80 blueImage
