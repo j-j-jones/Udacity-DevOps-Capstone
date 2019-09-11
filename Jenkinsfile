@@ -11,6 +11,7 @@ pipeline {
     stage('Build Blue Image') {
       steps {
         sh 'cd blue'
+        sh 'ls -a'
         sh './docker_run.sh'
       }
     }
