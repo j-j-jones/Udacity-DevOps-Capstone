@@ -15,7 +15,16 @@ pipeline {
           sh 'ls -a'
           sh 'sudo ./docker_run.sh'
         }
-
+      }
+    }
+    
+    stage('Build Green Image') {
+      steps {
+        dir(path: 'green') {
+          echo 'Moved to Green Folder'
+          sh 'ls -a'
+          sh 'sudo ./docker_run.sh'
+        }
       }
     }
     stage('Read YAML File') {
