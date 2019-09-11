@@ -10,9 +10,10 @@ pipeline {
     }
     stage('Build Blue Image') {
       steps {
-        dir("folder") {
-            sh './docker_run.sh'
+        dir(path: 'folder') {
+          sh './docker_run.sh'
         }
+
       }
     }
     stage('Read YAML File') {
