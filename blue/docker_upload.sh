@@ -3,11 +3,11 @@
 # STEP-01:
 # ESTABLISH DOCKER PATH
 dockerpath=jjones/udacity
-docker login
 
 # STEP-02:
 # AUTHENTICATE DOCKER IMAGE
 echo "Docker ID and Image: $dockerpath"
+docker login --username jjjones
 # TAG DOCKER IMAGE
 docker tag blueImage $dockerpath
 
