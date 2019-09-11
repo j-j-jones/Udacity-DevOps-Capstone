@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Build Blue Image') {
       steps {
-        sh 'cd blue'
+        sh 'cd /blue'
         sh './docker_run.sh'
       }
     }
