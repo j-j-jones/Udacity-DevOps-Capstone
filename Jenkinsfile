@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Build Blue Image') {
       steps {
-        sh '/blue/docker_build.sh'
+        sh './blue/docker_build.sh'
       }
     }
     stage('Read YAML File') {
