@@ -15,9 +15,9 @@ pipeline {
           sh 'ls -a'
           sh 'sudo ./docker_run.sh'
         }
+
       }
     }
-    
     stage('Build Green Image') {
       steps {
         dir(path: 'green') {
@@ -25,6 +25,7 @@ pipeline {
           sh 'ls -a'
           sh 'sudo ./docker_run.sh'
         }
+
       }
     }
     stage('Read YAML File') {
