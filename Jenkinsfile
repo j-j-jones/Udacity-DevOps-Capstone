@@ -16,7 +16,7 @@ pipeline {
       steps {
         echo 'Linting Now...'
         sh 'hostname'
-        sh 'tidy -q -e *.html'
+        sh /blue 'tidy -q -e *.html'
       }
     }
     stage('Build Docker Image') {
@@ -45,11 +45,11 @@ pipeline {
       }
     }
     
-    stage('Create Kubernetes Cluster') {
-      steps {
-        sh('aws_cluster_create.sh')
-      }
-    }
+    //stage('Create Kubernetes Cluster') {
+     // steps {
+       // sh('aws_cluster_create.sh')
+    //  }
+   // }
     
     stage('Read YAML File') {
       steps {
