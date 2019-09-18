@@ -15,10 +15,10 @@ pipeline {
     }
     
     
-   stage('Kubernetes Context-Set Cluster') {
+   stage('Kubernetes Update Cluster') {
       steps {
         withAWS(region: 'us-east-1', credentials: 'aws-key') {
-          sh 'kubectl config use-context arn:aws:eks:us-east-1:546547842218:cluster/capstonecluster'
+          sh 'aws eks --region us-east-1 update-kubeconfig --name udacity-devops-capstone'
         }
       }
     }
