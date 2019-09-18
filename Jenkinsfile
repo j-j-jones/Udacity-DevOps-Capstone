@@ -18,7 +18,7 @@ pipeline {
    stage('Kubernetes Update Cluster') {
       steps {
         withAWS(region: 'us-east-1', credentials: 'aws-key') {
-          sh 'aws eks --region us-east-1 update-kubeconfig --name udacity-devops-capstone-a'
+          sh 'aws eks --region us-east-1 update-kubeconfig --name udacity-devops-capstone-b'
         }
       }
     }
