@@ -1,6 +1,3 @@
-environment{
-def AWS_ROLE = "arn:aws:iam::724427472536:role/eksctl-udacity-devops-capstone-cluster-ServiceRole-1AJR0PR7FC5BK" // AWS role used to create EC2 infrastructure (instances, DNS entries...)  
-}
 pipeline {
   agent any
   stages {
