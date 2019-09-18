@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('Kubernetes cluster') {
       steps {
+        sh 'aws configure'
         withAWS(credentials: 'aws-static') {
           sh '''
           sudo eksctl create cluster           --name udacity-devops-capstone           --version 1.12           --region us-east-1
