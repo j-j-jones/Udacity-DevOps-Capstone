@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Kubernetes cluster') {
+    stage('Kubernetes Create Cluster') {
       steps {
         sh 'aws iam get-user'
         withAWS(region: 'us-east-1', credentials: 'aws-key') {
@@ -13,5 +13,16 @@ pipeline {
 
       }
     }
+    
+    
+   stage('Kubernetes Context-Set Cluster') {
+      steps {
+        withAWS(region: 'us-east-1', credentials: 'aws-key') {
+          sh 'kubectl config use-context arn:aws:eks:us-east-1:546547842218:cluster/capstonecluster'
+        }
+      }
+    }
+    
+    
   }
 }
