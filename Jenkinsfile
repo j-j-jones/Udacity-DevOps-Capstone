@@ -1,14 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('Lining Blue and Green HTML') {
+    stage('Kubernetes cluster') {
       steps {
-        echo 'Linting Now...'
+        echo 'Creating Now...'
         sh 'hostname'
         sh 'tidy -q -e **/*.html'
       }
     }
-    stage('Build Blue Image') {
+    stage('Create Conf File Cluster') {
       steps {
         dir(path: 'blue') {
           echo 'Moved to Blue Folder'
@@ -18,20 +18,6 @@ pipeline {
 
       }
     }
-    stage('Build Green Image') {
-      steps {
-        dir(path: 'green') {
-          echo 'Moved to Green Folder'
-          sh 'ls -a'
-          sh './docker_run.sh'
-        }
-
-      }
-    }
-    stage('Read YAML File') {
-      steps {
-        echo 'Reading YAML File Complete'
-      }
-    }
+    
   }
 }
