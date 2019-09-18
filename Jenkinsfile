@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('Kubernetes cluster') {
       steps {
+        sh 'aws iam get-user'
         withAWS(region: 'us-east-1', credentials: 'aws-key') {
           sh '''
           sudo eksctl create cluster           --name udacity-devops-capstone           --version 1.10           --region us-east-1
