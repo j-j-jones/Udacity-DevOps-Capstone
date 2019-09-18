@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  
   stages {
     stage('Kubernetes cluster') {
       steps {
@@ -18,16 +19,7 @@ pipeline {
         }
      }
     }
-    stage('Create Conf File Cluster') {
-      steps {
-        dir(path: 'blue') {
-          echo 'Moved to Blue Folder'
-          sh 'ls -a'
-          sh './docker_run.sh'
-        }
-
-      }
-    }
+ 
     
   }
 }
