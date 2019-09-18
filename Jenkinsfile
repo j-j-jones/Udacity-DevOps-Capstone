@@ -16,6 +16,7 @@ pipeline {
           --nodes-min 1 \
           --nodes-max 3 \
           --node-ami auto
+          '''
         }
      }
     }
