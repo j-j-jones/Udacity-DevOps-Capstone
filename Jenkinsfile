@@ -3,10 +3,20 @@ pipeline {
   stages {
     stage('Kubernetes cluster') {
       steps {
-        echo 'Creating Now...'
-        sh 'hostname'
-        sh 'tidy -q -e **/*.html'
-      }
+        withAWS(credentials: 'aws-static', region: 'us-east-1') {
+          sh '''
+          eksctl create cluster \
+          --name udacity-devops-capstone \
+          --version 1.13 \
+          --region us-east-1
+          --nodegroup-name standard--workers \
+          --node-type t2.micro \
+          --nodes 2 \
+          --nodes-min 1 \
+          --nodes-max 3 \
+          --node-ami auto
+        }
+     }
     }
     stage('Create Conf File Cluster') {
       steps {
